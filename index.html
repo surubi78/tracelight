@@ -77,7 +77,7 @@
 		<!-- Two -->
 		<section id="two" class="main style2">
 	<div class="container">
-		<div class="row gtr-120">
+		<div class="row gtr-150">
 			
 			<div class="col-6 col-12">
 				<header class="major">
@@ -126,9 +126,12 @@
 				<div class="container">
 					<header class="major">
 						<h2>Como funcionan TraceLight? </h2>
+
 					</header>
 					<p>La luz ilumina uniformemente los tejidos superficiales dentro del área de visualización mediante transiluminación lateral.</p>
+
 					<div class="row gtr-150">
+
 						<div class="col-4 col-12-medium">
 							<picture>
 							  <source srcset="images/venas4.webp" type="image/webp">
@@ -136,11 +139,17 @@
     					</picture>
   					</span>
 							<h3>Emisión luz fría</h3>
+						
 							<p>Producen un anillo de luz brillante que se enfoca hacia abajo y hacia el centro del anillo.</p>
-							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
+							<p class="more-text" style="display: none;">
+  						Soluciones que aprovechan la luz visible junto con las propiedades ópticas de la piel, también conocidas como soluciones de transiluminación: se basan en el uso de la tecnología LED. La superficie de la piel se irradia con una fuente de luz de una longitud de onda visible adecuada, lo que permite la visualización directa de las venas por las diferencias en las propiedades de los tejidos biológicos y físicos. La absorción, la dispersión y la reflexión de la luz dentro del tejido cutáneo determinarán la visualización, ya que no todas las longitudes de onda son capaces de penetrar lo suficiente en la piel. Por lo tanto, la longitud de onda emisora en este enfoque se elige conscientemente para maximizar la penetración de la luz.
+							</p>
+
+						<ul class="actions special">
+  						<li><a href="javascript:void(0);" class="button toggle-more">More</a></li>
+						</ul>
 						</div>
+
 						<div class="col-4 col-12-medium">
 						<picture>
       <source srcset="images/venas3.webp" type="image/webp">
@@ -149,25 +158,40 @@
   </span>
 							<h3>Luces LEDs rojas y naranjas</h3>
 							<p>La sangre desoxigenada en las venas absorbe la luz, por lo que las venas se muestran como líneas oscuras dentro del área iluminada.</p>
-							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
+							
+							<p class="more-text" style="display: none;">
+  						Esto permite distinguirlas con mayor claridad frente a los tejidos circundantes, facilitando su visualización durante procedimientos clínicos o diagnósticos.
+							Las luces LED rojas y naranjas son especialmente efectivas para este propósito: las luces naranjas, con longitudes de onda más cortas, proporcionan un mayor contraste superficial; mientras que las luces rojas, con longitudes de onda más largas, penetran más profundamente en los tejidos, siendo ideales para visualizar venas en pieles más oscuras o en casos donde las venas están menos definidas.
+							</p>
+
+<ul class="actions special">
+  						<li><a href="javascript:void(0);" class="button toggle-more">More</a></li>
+						</ul>
 						</div>
+
 						<div class="col-4 col-12-medium">
 							<picture>
       <source srcset="images/penetracion.webp" type="image/webp">
       <img src="images/penetracion.jpg" alt="Longitudes de onda" style="width: 300px;" loading="lazy">
     </picture>
   </span>
-							<h3>Longitudes de onda</h3>
-							<p>Los LEDs naranjas producen la mejor longitud de onda de luz para la absorción por la sangre desoxigenada en las venas, por lo que la luz naranja ofrece el mejor contraste para la visualización de venas.</p>
-							<p>LEDs rojos producen luz con una longitud de onda más larga que penetra más profundamente en los tejidos y mejor en la piel oscura.</p>
-							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
+							<h3>Transporte de luz en la piel</h3>
+							<p>La piel está compuesta por capas con propiedades ópticas que afectan la propagación de la luz. Al incidir sobre la superficie, entre un 4 % y 7 % de la luz visible se refleja debido al cambio en el índice de refracción entre el aire y la piel.</p>
+							<p class="more-text" style="display: none;">
+							El resto de la luz es absorbida o dispersada, limitando su penetración. A mayor longitud de onda, mayor profundidad de penetración: la luz naranja (~590 nm) y roja (~630 nm) puede alcanzar entre 4 y 5 mm en el tejido, facilitando la visualización de vasos sanguíneos superficiales.
+							Referencias (formato APA):
+
+Bashkatov, A. N., Genina, E. A., & Tuchin, V. V. (2005). Optical properties of skin, subcutaneous, and muscle tissues: A review. Journal of Innovative Optical Health Sciences, 4(1), 9–38.
+
+Jacques, S. L. (2013). Optical properties of biological tissues: A review. Physics in Medicine & Biology, 58(11), R37–R61.
+
+Tuchin, V. V. (2015). Tissue optics: Light scattering methods and instruments for medical diagnosis (3rd ed.). SPIE Press.
+						</p>
+<ul class="actions special">
+  						<li><a href="javascript:void(0);" class="button toggle-more">More</a></li>
+						</ul>
 						</div>
-					</div>
-				</div>
+
 			</section>
 
 		<!-- Four -->
@@ -215,6 +239,32 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".toggle-more");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", function () {
+        const column = this.closest(".col-4");
+        const moreText = column.querySelector(".more-text");
+
+        if (moreText.style.display === "none" || moreText.style.display === "") {
+          moreText.style.display = "block";
+          this.textContent = "Menos";
+        } else {
+          moreText.style.display = "none";
+          this.textContent = "More";
+
+          // Volver al inicio del bloque donde se hizo clic
+          column.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
+
+
+
 
 	</body>
 </html>
